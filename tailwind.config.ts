@@ -22,7 +22,8 @@ const config: Config = {
       "dark",
       "cupcake",
       "sunset",
-      "aqua"
+      "aqua",
+      "forest"
     ]
   }
 };
