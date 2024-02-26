@@ -19,7 +19,7 @@ const searchByIdClass = atom((get) =>
 // -- Client rendered search text box and selection if it is by id or number
 const SearchBox = () => {
     // -- Atom for search text box
-    const [searchTextst,setSearchText] = useAtom(searchText)
+    const [_searchText,setSearchText] = useAtom(searchText)
     const [_searchById,setSearchById] = useAtom(searchById)
     
     const _searchByNameClass = useAtomValue(searchByNameClass)
@@ -30,9 +30,21 @@ const SearchBox = () => {
         setSearchText(e.target?.value)
     },[])
 
+    const searchTxTBox = (
+        <div className="md:flex-1 w-[100%]">
+            <input 
+                type="text"
+                className="flex-1 justify-self-center rounded-lg input-sm input-bordered"  
+                value={_searchText}
+                onChange={handleInput}
+            />
+        </div>
 
+    )
+
+    // -- Search Box toggle
     const searchToggle = (
-        <div className="w-[100%] flex flex-row justify-center pt-4">
+        <div className="w-[100%] md:w-[fit] flex flex-row justify-center md:justify-end pt-4">
             <button 
                 className={_searchByNameClass}
                 onClick={() => setSearchById(false)}>
@@ -49,14 +61,12 @@ const SearchBox = () => {
 
 
     return (
-        <div className="w-100% flex flex-col px-4 pb-4">
-            <input 
-            type="text"
-             className="w-[100%] rounded-lg input-sm input-bordered"  
-             value={searchTextst} 
-             onChange={handleInput}
-        />
+        <div className="w-100%  sm:flex-1 flex flex-col md:flex-row px-4 pb-4">
+        {searchTxTBox}
+        
         {searchToggle}
+
+        <button className="bg-green-950 hover:bg-green-600 active:bg-green-300 active:scale-75 "> Test Button</button>
         </div>
     )
 }

@@ -22,7 +22,7 @@ export default function RootLayout({
       <head>
         <meta charSet="UTF-8"/>
       </head>
-      <body className={inter.className} data-theme="forest">
+      <body className={inter.className} data-theme="dark">
         <main className="">
             {/* Init Jotai */}
             <Provider>
