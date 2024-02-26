@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import {Provider} from "jotai"
+import TopBar from "@/components/topBar";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -21,12 +22,14 @@ export default function RootLayout({
       <head>
         <meta charSet="UTF-8"/>
       </head>
-      <body className={inter.className}>
-
-        {/* Init Jotai */}
-        <Provider>
-            {children}
-        </Provider>
+      <body className={inter.className} data-theme="forest">
+        <main className="">
+            {/* Init Jotai */}
+            <Provider>
+                <TopBar />
+                {children}
+            </Provider>
+        </main>
       </body>
     </html>
   );
